@@ -40,6 +40,7 @@ CREATE TABLE pessoa (
 Rode o maven build
 
 - Rodar aplicão local
+
 Rodar no servidor
 - URL da aplicação
 ``http://localhost:8083/DesafioCRUD/``
