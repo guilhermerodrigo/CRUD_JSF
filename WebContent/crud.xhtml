@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://java.sun.com/jsf/html">
+
+<h:head>
+	<title>Cadastro de clientes</title>
+</h:head>
+<h:body>
+	<div>
+		<h3>Cadastro</h3>
+		<h:form>
+			<h:inputHidden value="#{controleEntrada.id}" id="id" />
+			<p:panelGrid columns="3" id="painel">
+
+				<h:outputLabel value="Nome:" />
+				<p:inputText id="nome" value="#{controleEntrada.nome}" size="20"
+					required="true" requiredMessage="Campo Obrigatório" />
+				<p:message for="nome" />
+
+				<h:outputLabel value="Endereço:" />
+				<p:inputText id="end" value="#{controleEntrada.endereco}" size="20"
+					required="true" requiredMessage="Campo Obrigatório" />
+				<p:message for="end" />
+
+				<h:outputLabel value="Número:" />
+				<p:inputText id="num" value="#{controleEntrada.numero}" size="20" />
+				<p:message for="num" />
+
+				<h:outputLabel value="Telefone:" />
+				<p:inputText id="tel" value="#{controleEntrada.telefone}" size="20"
+					required="true" requiredMessage="Campo Obrigatório" />
+				<p:message for="tel" />
+
+				<h:outputLabel value="Cidade:" />
+				<p:inputText id="cid" value="#{controleEntrada.cidade}" size="20"
+					required="true" requiredMessage="Campo Obrigatório" />
+				<p:message for="cid" />
+
+				<h:form>
+					<p:commandButton value="Criar" id="btnCriar"
+						action="#{controleEntrada.salvarPessoa}" />
+				</h:form>
+				<h:form>
+					<p:commandButton value="Limpar" id="btnLimpar"
+						action="#{controleEntrada.limpar}" />
+				</h:form>
+
+			</p:panelGrid>
+		</h:form>
+	</div>
+	<h:panelGrid>
+		<f:facet name="header">
+			<h:outputText value="PESSOAS CADASTRADAS" />
+		</f:facet>
+		<p:dataTable id="tablePessoa" value="#{controleEntrada.listaPessoa}"
+			var="p" title="Pessoas Cadastradas" border="1" rows="10"
+			emptyMessage="sem registros" paginator="true">
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="NOME" />
+				</f:facet>
+				<h:outputText value="#{p.nome}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="ENDEREÇO" />
+				</f:facet>
+				<h:outputText value="#{p.endereco}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="NÚMERO" />
+				</f:facet>
+				<h:outputText value="#{p.numero}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="TELEFONE" />
+				</f:facet>
+				<h:outputText value="#{p.telefone}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="CIDADE" />
+				</f:facet>
+				<h:outputText value="#{p.cidade}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="ALTERAR - EXCLIR" />
+				</f:facet>
+				<h:form id="altera">
+					<p:commandButton ajax="false" value="ALTERAR" id="Alterar"
+						actionListener="#{controleEntrada.alterarPessoa(p)}" />
+					<p:commandButton ajax="false" value="EXCLUIR" id="Excluir"
+						actionListener="#{controleEntrada.deletarPessoa(p)}" />
+				</h:form>
+			</p:column>
+		</p:dataTable>
+
+	</h:panelGrid>
+	<h:form>
+		<h3>Atualizar</h3>
+		<p:panelGrid columns="3" id="painel">
+			<h:outputLabel value="Nome:" />
+			<p:inputText id="nome" value="#{controleEntrada.nomeA}" size="20"
+				required="true" requiredMessage="Campo Obrigatório" />
+			<p:message for="nome" />
+
+			<h:outputLabel value="Endereço:" />
+			<p:inputText id="end" value="#{controleEntrada.enderecoA}" size="20"
+				required="true" requiredMessage="Campo Obrigatório" />
+			<p:message for="end" />
+
+			<h:outputLabel value="Número:" />
+			<p:inputText id="num" value="#{controleEntrada.numeroA}" size="20" />
+			<p:message for="num" />
+
+			<h:outputLabel value="Telefone:" />
+			<p:inputText id="tel" value="#{controleEntrada.telefoneA}" size="20"
+				required="true" requiredMessage="Campo Obrigatório" />
+			<p:message for="tel" />
+
+			<h:outputLabel value="Cidade:" />
+			<p:inputText id="cid" value="#{controleEntrada.cidadeA}" size="20"
+				required="true" requiredMessage="Campo Obrigatório" />
+			<p:message for="cid" />
+			<div>
+				<h:form>
+					<p:commandButton value="Atualizar" id="btnAtualizar"
+						action="#{controleEntrada.atualizarPessoa}" />
+					<p:commandButton value="Cancelar" id="btnCancelar"
+						actionListener="#{controleEntrada.cancelar}" />
+				</h:form>
+			</div>
+
+		</p:panelGrid>
+	</h:form>
+
+</h:body>
+
+</html>
