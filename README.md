@@ -1,24 +1,26 @@
 # Desafio CRUD
-Eu escolhi fazer um cadastro simples de pessoa.
+Escolhi fazer um cadastro simples de pessoa em uma única tela(view).
+Foi usado JavaServer Faces(A), persistência em um banco de dados(B) e Hibernate(C).
 
 
 #Techstack:
-- Eclipse 2019-19 ?
-- Mysql Server  ?
+- Eclipse 2019-09
+- Mysql Server  8.0.19
 - MySQL Workbench
-- Java 1.8 ?
+- JavaSE 1.6
 - Maven 4.0.0
 - Hibernate 5.4
 - Java server faces 2.2
 - Tomcat 7.0
 
-#Intrucoes para rodar
+#Intrucões para rodar
 
 - IDE de preferência: Eclipse
+- instale Jboss tools 4.13 na própria IDE
 - Configure servidor tomcat
-
 - Banco de dados
-Esta aplica
+
+Script para criar a tabela no banco de dados
 
 ```
 CREATE TABLE pessoa (
@@ -35,8 +37,8 @@ CREATE TABLE pessoa (
 
 - Build
 
+Rode o maven build
 
-- Rodar
 
 - URL da aplicação
 ``http://localhost:8083/DesafioCRUD/``
