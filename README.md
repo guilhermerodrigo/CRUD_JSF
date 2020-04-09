@@ -1,6 +1,6 @@
 # Desafio CRUD
 Escolhi fazer um cadastro simples de pessoa em uma única tela(view).
-Foi usado JavaServer Faces(A), persistência em um banco de dados(B) e Hibernate(C).
+Foi usado JavaServer Faces(A), persistência em um banco de dados(B), Hibernate(C) e Testes (H).
 
 
 #Techstack:

@@ -26,10 +26,8 @@ public class ControleEntrada implements Serializable {
 	private String telefoneA;
 	private String cidadeA;
 	private List<Pessoa> listaPessoa = new ArrayList<Pessoa>();
-	private boolean isAtualizar;
 	
 	public ControleEntrada() {
-		this.isAtualizar = false;
 		PessoaManeger pessoaManager = new PessoaManeger();
 		pessoaManager.inicializar();
 		this.listaPessoa = pessoaManager.buscarPessoas();
@@ -105,7 +103,6 @@ public class ControleEntrada implements Serializable {
 
 	}
 	public void alterarPessoa(Pessoa p) {
-		isAtualizar = true;
 		nomeA = p.getNome();
 		enderecoA = p.getEndereco();
 		numeroA = p.getNumero();
@@ -171,13 +168,6 @@ public class ControleEntrada implements Serializable {
 		this.listaPessoa = listaPessoa;
 	}
 
-	public boolean isAtualizar() {
-		return isAtualizar;
-	}
-
-	public void setAtualizar(boolean isAtualizar) {
-		this.isAtualizar = isAtualizar;
-	}
 
 	public String getNomeA() {
 		return nomeA;
